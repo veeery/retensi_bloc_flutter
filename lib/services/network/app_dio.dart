@@ -5,8 +5,6 @@ import 'package:retensi_bloc/services/network/interceptor.dart';
 class AppDio {
 
   static String baseUrl = "http://192.168.88.30:3000/";
-
-
   final appDio = dio();
 
   static Options headers = Options(

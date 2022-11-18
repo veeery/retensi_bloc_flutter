@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "548684051995",
+    "project_id": "retensi-8a53f",
+    "storage_bucket": "retensi-8a53f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548684051995:android:4aec20284eac996ed2aabe",
+        "android_client_info": {
+          "package_name": "com.retensi.supply.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548684051995-a21o40ei2e8l5ogllkqlskvog5lqgptq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASzVB41eWLIN6Es_clIVotdb7ju1ln3kc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548684051995-a21o40ei2e8l5ogllkqlskvog5lqgptq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
