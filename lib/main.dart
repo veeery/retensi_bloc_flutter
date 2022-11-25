@@ -1,18 +1,14 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:retensi_bloc/constants/app_overlay.dart';
 import 'package:retensi_bloc/pages/app_routes.dart';
-import 'package:retensi_bloc/services/network/api_repository.dart';
-import 'package:retensi_bloc/services/notifications/notification_option.dart';
 import 'package:retensi_bloc/services/notifications/notification_service.dart';
 
 void main() async {
   BlocOverrides.runZoned(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await notificationService();
+    await NotificationService.getNotificationPermission();
     runApp(MyApp());
   });
 }
@@ -41,7 +37,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: "Retensi",
               theme: ThemeData(fontFamily: "ProximaNova"),
-              initialRoute: AppPages.testing,
+              initialRoute: AppPages.main,
               routes: AppRoutes.routes,
             );
           }),

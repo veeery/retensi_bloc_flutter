@@ -2,10 +2,8 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 class DefaultFirebaseOptions {
+
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      return web;
-    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
@@ -26,17 +24,8 @@ class DefaultFirebaseOptions {
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
-  }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAgwttdaFV5p1w7Yw1ixzq6pj5XewjAxO0',
-    appId: '1:996387500617:web:6e54e0b812af281ee5c598',
-    messagingSenderId: '996387500617',
-    projectId: 'fcmflutter33',
-    authDomain: 'fcmflutter33.firebaseapp.com',
-    storageBucket: 'fcmflutter33.appspot.com',
-    measurementId: 'G-MVXVCR152B',
-  );
+  }
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyASzVB41eWLIN6Es_clIVotdb7ju1ln3kc',
