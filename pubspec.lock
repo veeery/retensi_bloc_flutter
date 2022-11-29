@@ -364,13 +364,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
-  toast:
+  top_snackbar_flutter:
     dependency: "direct main"
     description:
-      name: toast
+      name: top_snackbar_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "3.0.0"
   typed_data:
     dependency: transitive
     description:

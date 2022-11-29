@@ -1,12 +1,7 @@
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:retensi_bloc/model/notification_model.dart';
-import 'package:retensi_bloc/pages/app_routes.dart';
-import 'package:retensi_bloc/services/notifications/notification_service.dart';
-import 'package:retensi_bloc/widgets/app_snackbar.dart';
 import 'package:retensi_bloc/widgets/base_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Testing extends StatelessWidget {
   @override
@@ -26,8 +21,6 @@ class Testing extends StatelessWidget {
         },
       ),
       children: [
-
-        Text('asc')
 
         // BlocConsumer<NotificationBloc, NotificationState>(
         //   listener: (context, state) {

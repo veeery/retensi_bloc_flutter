@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:retensi_bloc/services/notifications/notification_option.dart';
 
 class NotificationService {
@@ -8,6 +9,13 @@ class NotificationService {
     await Firebase.initializeApp();
     debugPrint("Handling a background message: ${message.notification!.title}/${message.notification!.body}");
   }
+
+  static const AndroidNotificationChannel androidNotificationChannel = AndroidNotificationChannel(
+      'high_importance_channel',
+      'High Importance Notification',
+      description: 'This channel is used for important notifications',
+      importance: Importance.high,
+  );
 
   static Future getNotificationPermission() async {
     await Firebase.initializeApp(
@@ -17,28 +25,10 @@ class NotificationService {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-    NotificationSettings settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
+    AndroidNotificationChannel androidChannel = androidNotificationChannel;
 
-    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-        debugPrint('Got a message whilst in the foreground!');
-        debugPrint('Message data: ${message.data}');
-
-        if (message.notification != null) {
-          debugPrint('Message also contained a notification: ${message.notification}');
-          debugPrint(message.notification!.title);
-          debugPrint(message.notification!.body);
-        }
-      });
-    }
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.createNotificationChannel(androidChannel);
   }
 
   static Future<void> subscribeTopic(String topic) async {

@@ -23,13 +23,15 @@ dependencies:
   # ScreenUtil (for Responsive UI)
   flutter_screenutil: ^5.6.0
 
-  # Firebase
+  # Firebase - Notification Background - Foreground
   firebase_messaging: ^14.1.0
   firebase_core: ^2.2.0
+  # Notification Foreground When App Open
   flutter_local_notifications: ^12.0.4
 
-  # Toast
-  toast: ^0.3.0
+
+  # SnackBar Top
+  top_snackbar_flutter: ^3.0.0
 
   cupertino_icons: ^1.0.2
 

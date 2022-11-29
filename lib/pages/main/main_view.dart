@@ -1,9 +1,10 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:retensi_bloc/pages/login/login_view.dart';
 import 'package:retensi_bloc/pages/testing/testing.dart';
 import 'package:retensi_bloc/widgets/app_bottom_bar.dart';
+
+import '../../services/notifications/notification_platform_service.dart';
 
 // This is Dashboard / BottomNavigation with
 // Home, Profile
@@ -13,13 +14,10 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  @override
-  void initState() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      final snackbar = SnackBar(content: Text('${message.notification!.title}'));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
-    });
 
+  @override
+  void initState()  {
+    NotificationPlatformService.listenNotification();
     super.initState();
   }
 
