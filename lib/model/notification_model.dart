@@ -1,25 +1,25 @@
 class NotificationModel {
-  String? title;
-  String? body;
+  String? action;
+  String? payload;
 
-  NotificationModel({this.title, this.body});
+  NotificationModel({this.action, this.payload});
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) {
     return NotificationModel(
-      title: json["title"],
-      body: json["body"],
+      action: json["action"],
+      payload: json["payload"],
     );
   }
 
-  NotificationModel.name(this.title, this.body);
+  NotificationModel.name(this.action, this.payload);
 
   Map<String, dynamic> toJson() {
     return {
-      "title": title,
-      "body": body,
+      "action": action,
+      "payload": payload,
     };
   }
 
   @override
-  List<Object> get props => [title!, body!];
+  List<Object> get props => [action!, payload!];
 }

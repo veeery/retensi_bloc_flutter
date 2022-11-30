@@ -1,6 +1,8 @@
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:retensi_bloc/pages/app_routes.dart';
+import 'package:retensi_bloc/pages/navigator_key.dart';
 import 'package:retensi_bloc/widgets/base_widget.dart';
 
 class Testing extends StatelessWidget {
@@ -13,11 +15,7 @@ class Testing extends StatelessWidget {
           await FirebaseMessaging.instance.subscribeToTopic('retensi');
 
 
-          // ScaffoldMessenger.of(context).showSnackBar(
-          //   SnackBar(
-          //     content: Text("Loading"),
-          //   ),
-          // );
+          navigatorKey.currentState?.pushNamed(AppPages.main);
         },
       ),
       children: [

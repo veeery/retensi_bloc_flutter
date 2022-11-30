@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:retensi_bloc/constants/app_overlay.dart';
 import 'package:retensi_bloc/pages/app_routes.dart';
+import 'package:retensi_bloc/pages/navigator_key.dart';
 import 'package:retensi_bloc/services/notifications/notification_service.dart';
 
 void main() async {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           designSize: Size(1080, 2220),
           builder: (context, child) {
             return MaterialApp(
+              navigatorKey: navigatorKey,
               builder: (context, child) {
                 return OrientationBuilder(
                   builder: (context, orientation) {
