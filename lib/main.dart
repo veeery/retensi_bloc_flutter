@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: "Retensi",
               theme: ThemeData(fontFamily: "ProximaNova"),
-              initialRoute: AppPages.main,
+              initialRoute: AppPages.login,
               routes: AppRoutes.routes,
             );
           }),
