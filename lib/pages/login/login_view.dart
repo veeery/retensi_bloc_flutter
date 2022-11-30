@@ -8,9 +8,9 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseWidgets(
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.red,
         children: [
-          AppLocalImage(image: AppImages.logo, height: 0.2.sh)
+          AppLocalImage(image: AppImages.logo, height: 0.2.sh),
         ]
     );
   }

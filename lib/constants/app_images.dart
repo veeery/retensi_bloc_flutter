@@ -8,4 +8,7 @@ class AppImages {
 
   // app images
   static const String logo = '${pathImage}logo.png';
+
+  static const String snack = '${pathImage}snack.png';
+  static const String snackBox = '${pathImage}snackbox.png';
 }
