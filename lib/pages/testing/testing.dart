@@ -14,8 +14,6 @@ class Testing extends StatelessWidget {
           FirebaseMessaging.instance.getToken().then((value) => print(value));
           await FirebaseMessaging.instance.subscribeToTopic('retensi');
 
-
-          navigatorKey.currentState?.pushNamed(AppPages.main);
         },
       ),
       children: [

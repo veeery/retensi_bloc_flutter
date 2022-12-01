@@ -4,7 +4,11 @@ import 'package:retensi_bloc/services/network/interceptor.dart';
 
 class AppDio {
 
-  static String baseUrl = "http://192.168.88.30:3000/";
+  static String baseUrl = "http://192.168.238.180:3000/";
+
+  // static String baseUrl = "http://192.168.1.122:3000/";
+  // static String baseUrl = "http://192.168.100.37:3000/";
+
   final appDio = dio();
 
   static Options headers = Options(
@@ -38,8 +42,8 @@ class AppDio {
 
   static Dio dio() {
     final options = BaseOptions(
-        baseUrl: "$baseUrl/api/",
-        // baseUrl: "$baseUrl/",
+        // baseUrl: "$baseUrl/api/",
+        baseUrl: "$baseUrl/",
         contentType: "application/json",
         connectTimeout: 30000,
         sendTimeout: 30000,

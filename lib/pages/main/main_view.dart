@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:retensi_bloc/pages/home/home_view.dart';
 import 'package:retensi_bloc/pages/login/login_view.dart';
 import 'package:retensi_bloc/pages/testing/testing.dart';
 import 'package:retensi_bloc/widgets/app_bottom_bar.dart';
@@ -56,7 +57,7 @@ class _MainViewState extends State<MainView> {
 Widget AppDisplayPage({int index = 0}) {
   switch (index) {
     case 0:
-      return LoginView();
+      return HomeView();
     case 1:
       return Testing();
     default:

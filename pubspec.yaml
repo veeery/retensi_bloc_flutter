@@ -29,9 +29,11 @@ dependencies:
   # Notification Foreground When App Open
   flutter_local_notifications: ^12.0.4
 
-
   # SnackBar Top
   top_snackbar_flutter: ^3.0.0
+
+  # UI Utils
+  wave: ^0.2.2
 
   cupertino_icons: ^1.0.2
 
