@@ -4,9 +4,9 @@ import 'package:retensi_bloc/services/network/interceptor.dart';
 
 class AppDio {
 
-  static String baseUrl = "http://192.168.238.180:3000/";
+  // static String baseUrl = "http://192.168.238.180:3000/";
 
-  // static String baseUrl = "http://192.168.1.122:3000/";
+  static String baseUrl = "http://192.168.1.122:3000/";
   // static String baseUrl = "http://192.168.100.37:3000/";
 
   final appDio = dio();

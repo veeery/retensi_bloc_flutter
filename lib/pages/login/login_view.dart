@@ -10,8 +10,6 @@ import 'package:retensi_bloc/widgets/app_textfield.dart';
 import 'package:retensi_bloc/widgets/base_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:retensi_bloc/widgets/loading/loading_center.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -27,7 +25,7 @@ class LoginView extends StatelessWidget {
           value: AuthBloc(),
           child: BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
-              if (state is AuthError) {
+              if (state is AuthValidateMessage) {
                 // show error widget
                 ScaffoldMessenger.of(context).showSnackBar(
                    SnackBar(

@@ -9,7 +9,7 @@ import 'package:retensi_bloc/services/notifications/notification_service.dart';
 void main() async {
   BlocOverrides.runZoned(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await NotificationService.getNotificationPermission();
+    await NotificationService.getPermission();
     runApp(MyApp());
   });
 }
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return MaterialApp(
               navigatorKey: navigatorKey,
+              scaffoldMessengerKey: scaffoldKey,
               builder: (context, child) {
                 return OrientationBuilder(
                   builder: (context, orientation) {

@@ -7,7 +7,7 @@ class NotificationPlatformService {
 
   static void listenNotification() async {
     // initiate Android Setting notification
-    var initializationSettingsAndroid = const AndroidInitializationSettings('@mipmap/ic_launcher');
+    var initializationSettingsAndroid = const AndroidInitializationSettings('@drawable/ic_launcher');
 
     // initiate Apple Setting notification
     var initializationSettingsIOS = const DarwinInitializationSettings(
@@ -25,12 +25,12 @@ class NotificationPlatformService {
 
     flutterLocalNotificationsPlugin.initialize(
       initializeSettings,
-      onDidReceiveBackgroundNotificationResponse: (details) {
-        print(details);
-      },
-      onDidReceiveNotificationResponse: (details) {
-        print(details);
-      },
+      // onDidReceiveBackgroundNotificationResponse: (details) {
+      //   print(details);
+      // },
+      // onDidReceiveNotificationResponse: (details) {
+      //   print(details);
+      // },
     );
 
     AndroidNotificationChannel androidChannel = NotificationService.androidNotificationChannel;
@@ -50,6 +50,7 @@ class NotificationPlatformService {
               iOS: appleInitialize(),
             ),
         );
+
       }
     });
   }
@@ -59,7 +60,7 @@ class NotificationPlatformService {
         channel.id,
         channel.name,
         channelDescription: channel.description,
-        showProgress: true,
+        priority: Priority.max,
         actions: [
           // AndroidNotificationAction(androidChannel.id, "OK"),
           // AndroidNotificationAction(androidChannel.id, "Cancel")

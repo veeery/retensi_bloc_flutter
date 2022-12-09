@@ -13,19 +13,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final ApiRepository api = ApiRepository();
 
   AuthBloc() : super(AuthInitial()) {
-   // on<AuthEvent>((event, emit) async {
-   //   if (event is Login) {
-   //     emit(AuthLoading());
-   //     if (event.username.isEmpty || event.password.isEmpty) {
-   //       emit(AuthError(message: "Kosong"));
-   //     } else {
-   //       await api.login(username: event.username, password: event.password);
-   //       FirebaseMessaging.instance.getToken().then((value) => print(value));
-   //       await FirebaseMessaging.instance.subscribeToTopic('retensi');
-   //       emit(AuthLoaded(username: event.username));
-   //     }
-   //   }
-   // });
     on<Login>(onLogin);
   }
 
@@ -33,14 +20,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     if (event is Login) {
       emit(AuthLoading());
       if (event.username.isEmpty || event.password.isEmpty) {
-        emit(AuthError(message: "Kosong"));
+        emit(AuthValidateMessage(message: "Kosong"));
       } else {
         UsersModel? users;
 
         users =  await api.login(username: event.username, password: event.password);
 
         if (users == null) {
-          emit(AuthError(message: "Wrong"));
+          emit(AuthFailed());
         } else {
           FirebaseMessaging.instance.getToken().then((value) => print(value));
           FirebaseMessaging.instance.subscribeToTopic('retensi');

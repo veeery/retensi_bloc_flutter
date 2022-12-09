@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:retensi_bloc/model/users_model.dart';
 import 'package:retensi_bloc/services/network/app_dio.dart';
 
@@ -16,9 +15,8 @@ class ApiRepository {
             "username": username,
             "password": password,
           },
-          options: AppDio.headers);
-
-      print(response);
+          options: AppDio.headers
+      );
 
       usersModel = UsersModel.fromJson(response.data);
     });

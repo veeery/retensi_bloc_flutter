@@ -1,11 +1,16 @@
-// ignore_for_file: avoid_print, unnecessary_overrides
+
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:retensi_bloc/pages/navigator_key.dart';
+import 'package:retensi_bloc/services/network/app_dio.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class AppInterceptor extends Interceptor {
-
-
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    print('Request Url : ${AppDio.baseUrl}${options.path}');
+
     super.onRequest(options, handler);
   }
 
@@ -45,10 +50,16 @@ class AppInterceptor extends Interceptor {
         }
         break;
       default:
-        message = err.message.toString();
+        message = err.response!.data['message'].toString();
         break;
     }
     //TODO return Message Error Snackbar in Here
+    print(message);
+
+    scaffoldKey.currentState!.showSnackBar(
+      SnackBar(content: Text(err.response!.data['message'].toString()))
+    );
+
     super.onError(err, handler);
   }
 }
